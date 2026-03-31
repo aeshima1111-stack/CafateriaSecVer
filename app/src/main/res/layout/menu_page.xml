@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#FAF3F0"> <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/categoryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="8dp"
+        android:text="Explore Our Menu"
+        android:textColor="#3E2723"
+        android:textSize="28sp"
+        android:fontFamily="sans-serif-black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:text="Select a category to view items"
+        android:textColor="#8D6E63"
+        android:textSize="16sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBreakfast"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginBottom="16dp"
+        android:text="Breakfast"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="@color/brown"
+        app:cornerRadius="16dp"
+        app:iconTint="#FFFFFF"
+        android:elevation="4dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnStarters"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginBottom="16dp"
+        android:text="Starters"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="@color/brown"
+        app:cornerRadius="16dp"
+        android:elevation="4dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnMainCourse"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginBottom="16dp"
+        android:text="Main Course"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="@color/brown"
+        app:cornerRadius="16dp"
+        android:elevation="4dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDessert"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginBottom="16dp"
+        android:text="Desserts"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="@color/brown"
+        app:cornerRadius="16dp"
+        android:elevation="4dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBeverages"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginBottom="16dp"
+        android:text="Beverages"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="@color/brown"
+        app:cornerRadius="16dp"
+        android:elevation="4dp" />
+
+</LinearLayout>
+</ScrollView>

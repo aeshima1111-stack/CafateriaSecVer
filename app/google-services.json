@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "699903481757",
+    "firebase_url": "https://cafe2-bdd8e-default-rtdb.firebaseio.com",
+    "project_id": "cafe2-bdd8e",
+    "storage_bucket": "cafe2-bdd8e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699903481757:android:02fec0295312deed6bc174",
+        "android_client_info": {
+          "package_name": "com.example.cafe_stock"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCy5ULXlTVH8RhZfRDd-dL-cTjzI5Vbmy0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699903481757:android:1eac6f7d65f9befb6bc174",
+        "android_client_info": {
+          "package_name": "com.example.cafeteria"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCy5ULXlTVH8RhZfRDd-dL-cTjzI5Vbmy0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

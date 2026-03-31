@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Inventory Item"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#3E2723"
+        android:layout_marginBottom="16dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Item Name (e.g. Fresh Milk)"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="#4E342E"
+        app:hintTextColor="#4E342E"
+        android:layout_marginBottom="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etItemName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:textColor="#3E2723" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Expiry Details"
+        android:textSize="14sp"
+        android:textColor="#8D6E63"
+        android:layout_marginBottom="8dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPickExpDate"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Select Expiry Date"
+        android:textAllCaps="false"
+        android:textColor="#4E342E"
+        app:strokeColor="#D7CCC8"
+        app:iconGravity="textStart"
+        app:iconTint="#4E342E"
+        app:cornerRadius="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Today's date will be saved as the Addition Date."
+        android:textSize="11sp"
+        android:textColor="#A1887F"
+        android:layout_marginTop="12dp"
+        android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>

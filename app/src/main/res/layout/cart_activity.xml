@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#FAF3F0"> <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Your Cart"
+    android:textSize="28sp"
+    android:fontFamily="sans-serif-black"
+    android:textColor="#3E2723"
+    android:layout_marginBottom="24dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/cartItemsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D7CCC8"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="end">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Order Total"
+                android:textSize="16sp"
+                android:textColor="#8D6E63" />
+
+            <TextView
+                android:id="@+id/totalAmountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:textColor="#3E2723"
+                android:textStyle="bold"
+                android:text="₹0.00" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/proceedToPaymentButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Proceed to Payment"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="@color/brown"
+            app:cornerRadius="12dp"
+            android:elevation="4dp"
+            android:enabled="false" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/checkoutButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="8dp"
+            android:text="Checkout"
+            android:textAllCaps="false"
+            android:textColor="#4E342E"
+            app:strokeColor="#4E342E"
+            app:cornerRadius="12dp"
+            android:visibility="gone" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cocBtn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="COC"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="@color/brown"
+            app:cornerRadius="12dp"
+            android:elevation="4dp"
+             />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
