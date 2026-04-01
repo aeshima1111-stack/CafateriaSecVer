@@ -30,6 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
+        app:cardBackgroundColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/admintv">
 
@@ -68,6 +69,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
+        app:cardBackgroundColor="@color/white"
         android:layout_marginTop="15dp"
         app:layout_constraintStart_toEndOf="@+id/cardadd"
         app:layout_constraintTop_toBottomOf="@+id/admintv">
@@ -108,6 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardadd">
 
@@ -147,6 +150,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/cardhistory"
         app:layout_constraintTop_toBottomOf="@+id/cardview">
 
@@ -158,19 +162,19 @@
             <ImageButton
                 android:layout_width="110dp"
                 android:layout_height="100dp"
-                android:padding="15dp"
                 android:layout_gravity="center"
-                android:src="@drawable/iconinvent"
                 android:backgroundTint="@color/white"
-                android:scaleType="fitXY"/>
+                android:padding="15dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/iconinvent" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sales"
-                android:textSize="15sp"
                 android:layout_gravity="center"
                 android:paddingBottom="8dp"
+                android:text="Sales"
+                android:textSize="15sp"
 
                 />
 
@@ -185,6 +189,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        app:cardBackgroundColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardhistory"
         >

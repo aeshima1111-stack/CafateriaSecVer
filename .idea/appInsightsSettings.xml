@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.cafeteria" />
-                  <option name="mobileSdkAppId" value="1:374244943098:android:01fb17943bdd43097fd543" />
-                  <option name="projectId" value="cafeteriaapp-15f12" />
-                  <option name="projectNumber" value="374244943098" />
+                  <option name="mobileSdkAppId" value="1:699903481757:android:1eac6f7d65f9befb6bc174" />
+                  <option name="projectId" value="cafe2-bdd8e" />
+                  <option name="projectNumber" value="699903481757" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
