@@ -47,7 +47,8 @@ object ShoppingCart {
     data class CartItem(
         val name: String,
         var quantity: Int,
-        val price: Double
+        val price: Double,
+        var category : String = ""
     ) {
 
         constructor(): this("",0,0.0)

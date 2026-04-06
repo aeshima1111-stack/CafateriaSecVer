@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.cafeteria.databinding.ActivityAdminPageBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -43,13 +44,34 @@ class AdminPageActivity : AppCompatActivity() {
             insets
         }
 
+        binding.logoutadmin.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+
+            Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, AuthActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         binding.cardadd.setOnClickListener {
+            startActivity(Intent(this, AddDataActivity::class.java))
+        }
+        binding.addimg.setOnClickListener {
             startActivity(Intent(this, AddDataActivity::class.java))
         }
         binding.cardview.setOnClickListener {
             startActivity(Intent(this, AdminViewActivity::class.java))
         }
+        binding.viewimg.setOnClickListener {
+            startActivity(Intent(this, AdminViewActivity::class.java))
+        }
+
         binding.cardhistory.setOnClickListener {
+            startActivity(Intent(this, OrderActivity::class.java))
+        }
+
+        binding.historyimg.setOnClickListener {
             startActivity(Intent(this, OrderActivity::class.java))
         }
 
@@ -59,7 +81,15 @@ class AdminPageActivity : AppCompatActivity() {
             startDetailedReportExport()
         }
 
+        binding.salesimg.setOnClickListener {
+            Toast.makeText(this, "Fetching data and generating report...", Toast.LENGTH_SHORT).show()
+            startDetailedReportExport()
+        }
+
         binding.cardinventory.setOnClickListener {
+            startActivity(Intent(this, InventoryActivity::class.java))
+        }
+        binding.inventoryimg.setOnClickListener {
             startActivity(Intent(this, InventoryActivity::class.java))
         }
     }

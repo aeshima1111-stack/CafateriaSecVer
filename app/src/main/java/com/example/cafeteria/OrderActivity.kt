@@ -67,6 +67,7 @@ class OrderAdapter(private val orders: List<Order>) : RecyclerView.Adapter<Order
         val id: TextView = view.findViewById(R.id.txtOrderId)
         val items: TextView = view.findViewById(R.id.txtOrderItems)
         val date: TextView = view.findViewById(R.id.txtOrderDate)
+        val status: TextView = view.findViewById(R.id.txtStatus)
         val total: TextView = view.findViewById(R.id.txtOrderTotal)
     }
 
@@ -81,9 +82,16 @@ class OrderAdapter(private val orders: List<Order>) : RecyclerView.Adapter<Order
         holder.id.text = "Order: ...${order.orderId.takeLast(6)}"
         holder.total.text = "₹${String.format("%.2f", order.totalAmount)}"
 
-        // Format the names of all items in the order
-        holder.items.text = order.items.joinToString(", ") { it.name }
+        // Format item and quantity
+        holder.items.text = order.items.joinToString(", ") { "${it.name} x ${it.quantity}" }
 
+        // Format status
+        holder.status.text = order.status
+        if (order.status == "COC") {
+            holder.status.setTextColor(android.graphics.Color.RED)
+        } else {
+            holder.status.setTextColor(android.graphics.Color.GREEN)
+        }
         // Format Date
         val sdf = SimpleDateFormat("dd MMM yyyy, hh:mm a", Locale.getDefault())
         holder.date.text = sdf.format(Date(order.timestamp))

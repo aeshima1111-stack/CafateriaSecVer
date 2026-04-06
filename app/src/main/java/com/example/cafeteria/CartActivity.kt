@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.cafeteria.ShoppingCart.CartItem
 import com.example.cafeteria.databinding.CartActivityBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.razorpay.Checkout
 import com.razorpay.PaymentResultListener
@@ -88,6 +89,8 @@ class CartActivity : AppCompatActivity(), PaymentResultListener {
     }
 
     private fun saveOrderToFirebase(paymentId: String) {
+        val currentUser = com.google.firebase.auth.FirebaseAuth.getInstance().currentUser
+        val uId = currentUser?.uid ?: ""
         val orderId = database.push().key ?: UUID.randomUUID().toString()
         val currentstatus = if (paymentId== "CoC_Pending") "COC" else "Paid Online"
 
@@ -95,6 +98,7 @@ class CartActivity : AppCompatActivity(), PaymentResultListener {
         // Create Order Object
         val order = Order(
             orderId = orderId,
+            userId = uId,
             paymentId = paymentId,
             items = cart.allItems.toList(), // Snapshot of current items
             totalAmount = cart.totalPrice,
@@ -161,10 +165,11 @@ class CartActivity : AppCompatActivity(), PaymentResultListener {
 data class Order(
     val orderId: String = "",
     val paymentId: String = "",
+    val userId: String = "",
     val items: List<CartItem> = listOf(),
     val totalAmount: Double = 0.0,
     val timestamp: Long = System.currentTimeMillis(),
     val status: String = "Pending"
 ) {
-    constructor(): this("","",emptyList(),0.0,0,"")
+    constructor(): this("","","",emptyList(),0.0,0,"")
 }

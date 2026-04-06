@@ -97,7 +97,7 @@
                             android:layout_width="35dp"
                             android:layout_height="35dp"
                             android:gravity="center"
-                            android:text="0" />
+                            android:text="1" />
 
                         <Button
                             android:id="@+id/btnPlus1"
@@ -195,7 +195,7 @@
                             android:layout_width="35dp"
                             android:layout_height="35dp"
                             android:gravity="center"
-                            android:text="0" />
+                            android:text="1" />
 
                         <Button
                             android:id="@+id/btnPlus2"
@@ -288,7 +288,7 @@
                             android:layout_width="35dp"
                             android:layout_height="35dp"
                             android:gravity="center"
-                            android:text="0" />
+                            android:text="1" />
 
                         <Button
                             android:id="@+id/btnPlus3"
@@ -381,7 +381,7 @@
                             android:layout_width="35dp"
                             android:layout_height="35dp"
                             android:gravity="center"
-                            android:text="0" />
+                            android:text="1" />
 
                         <Button
                             android:id="@+id/btnPlus4"
@@ -474,7 +474,7 @@
                             android:layout_width="35dp"
                             android:layout_height="35dp"
                             android:gravity="center"
-                            android:text="0" />
+                            android:text="1" />
 
                         <Button
                             android:id="@+id/btnPlus5"
@@ -567,7 +567,7 @@
                             android:layout_width="35dp"
                             android:layout_height="35dp"
                             android:gravity="center"
-                            android:text="0" />
+                            android:text="1" />
 
                         <Button
                             android:id="@+id/btnPlus6"
@@ -660,7 +660,7 @@
                             android:layout_width="35dp"
                             android:layout_height="35dp"
                             android:gravity="center"
-                            android:text="0" />
+                            android:text="1" />
 
                         <Button
                             android:id="@+id/btnPlus7"

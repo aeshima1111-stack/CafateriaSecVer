@@ -30,7 +30,7 @@ class SplashActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             } else {
-                var intent = Intent(this, AdminPageActivity::class.java)
+                var intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
                 finish()
             }
