@@ -16,6 +16,9 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class AdminPageActivity : AppCompatActivity() {
 
@@ -92,7 +95,19 @@ class AdminPageActivity : AppCompatActivity() {
         binding.inventoryimg.setOnClickListener {
             startActivity(Intent(this, InventoryActivity::class.java))
         }
+        
+        binding.carduserdata.setOnClickListener {
+            Toast.makeText(this, "Generating users activity report", Toast.LENGTH_SHORT).show()
+            generateUserDataReport()
+        }
+        binding.userdata.setOnClickListener {
+            Toast.makeText(this, "Generating users activity report", Toast.LENGTH_SHORT).show()
+            generateUserDataReport()
+        }
     }
+
+
+    // Sales Report
 
     private fun startDetailedReportExport() {
         val itemsRef = FirebaseDatabase.getInstance().getReference("items")
@@ -122,6 +137,7 @@ class AdminPageActivity : AppCompatActivity() {
             }
         })
     }
+
 
     private fun processDetailedOrders(ordersRef: com.google.firebase.database.DatabaseReference, categoryMap: Map<String, String>) {
         ordersRef.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -169,7 +185,7 @@ class AdminPageActivity : AppCompatActivity() {
                     csvContent.append("$safeName,${item.category},${item.unitPrice},${item.totalQty},${String.format("%.2f", item.totalRevenue)}\n")
                 }
 
-                saveCsvToDevice(csvContent.toString())
+                saveCsvToDevice(csvContent.toString(),"Sales_Report")
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -178,8 +194,8 @@ class AdminPageActivity : AppCompatActivity() {
         })
     }
 
-    private fun saveCsvToDevice(content: String) {
-        val fileName = "Cafeteria_Sales_${System.currentTimeMillis()}.csv"
+    private fun saveCsvToDevice(content: String, prefix: String) {
+        val fileName = "${prefix}_${System.currentTimeMillis()}.csv"
         val resolver = contentResolver
         val contentValues = ContentValues().apply {
             put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
@@ -197,4 +213,61 @@ class AdminPageActivity : AppCompatActivity() {
             }
         } ?: Toast.makeText(this, "Error: Could not create file", Toast.LENGTH_SHORT).show()
     }
+
+
+    //User Data Report
+
+
+    private fun generateUserDataReport() {
+        val ordersRef = FirebaseDatabase.getInstance().getReference("Orders")
+
+        ordersRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                //Structure = Month -> (user -> ordercount)
+                val monthlyUserActivity = mutableMapOf<String, MutableMap<String, Int>>()
+
+                for (orderSnapshot in snapshot.children) {
+                    val orderId = orderSnapshot.child("orderId").getValue(String::class.java)
+                    val timestamp = orderSnapshot.child("timestamp").getValue(Long::class.java) ?: 0L
+                    val userEmail  = orderSnapshot.child("userEmail").getValue(String::class.java) ?: "Unknown"
+
+                    // Month format
+                    val minthformat = SimpleDateFormat("MMMM yyyy", Locale.getDefault())
+                    val monthKey = minthformat.format(Date(timestamp))
+
+                    if (!monthlyUserActivity.containsKey(monthKey)) {
+                        monthlyUserActivity[monthKey] = mutableMapOf()
+                    }
+                    // user count increase on visit
+                    val userCounts = monthlyUserActivity[monthKey]!!
+                    userCounts[userEmail] = (userCounts[userEmail] ?: 0) + 1
+                }
+                // CSV File
+                buildUserActivityCsv(monthlyUserActivity)
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@AdminPageActivity, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun buildUserActivityCsv(data: Map<String, Map<String, Int>>) {
+        val csvContent = StringBuilder()
+        csvContent.append("Monthly Users Report\n")
+        csvContent.append("Month, User Activity (Orders Placed)\n")
+
+        for ((month, users) in data) {
+            val userListString = users.map { (email,count) ->
+                "$email($count)"
+            }.joinToString(" | ")
+
+            csvContent.append("$month,\"$userListString\"\n")
+        }
+
+        saveCsvToDevice(csvContent.toString(), "User_Action_Frequency")
+    }
+
+
 }

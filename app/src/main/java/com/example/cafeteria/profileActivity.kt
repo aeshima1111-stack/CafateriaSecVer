@@ -43,9 +43,10 @@ class profileActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        loadUserOrderHistory()
         userInterface()
         loadUserFirestoreData()
-        loadUserOrderHistory()
+
 
         binding.btnlogout.setOnClickListener {
             auth.signOut()
@@ -67,15 +68,16 @@ class profileActivity : AppCompatActivity() {
 
     private fun loadUserFirestoreData() {
         val uid = auth.currentUser?.uid ?: return
-        binding.tvemail.text = auth.currentUser?.email
+        val userEmail = auth.currentUser?.email
+        binding.tvemail.text = userEmail ?: "Email not found"
 
-        firestore.collection("users").document(uid).get()
-            .addOnSuccessListener { doc ->
-                if (doc.exists()) {
-                    binding.tvemail.text = doc.getString("name")
-                }
-
-            }
+//        firestore.collection("users").document(uid).get()
+//            .addOnSuccessListener { doc ->
+//                if (doc.exists()) {
+//                    binding.tvemail.text = doc.getString("name")
+//                }
+//
+//            }
     }
 
     private fun userInterface() {
@@ -161,10 +163,11 @@ data class userOrder(
     val orderId: String = "",
     val userId: String = "",
     val paymentId: String = "",
+    val userEmail: String = "",
     val items: List<ShoppingCart.CartItem> = listOf(),
     val totalAmount: Double = 0.0,
     val timestamp: Long = System.currentTimeMillis(),
     val status: String = "Pending"
 ) {
-    constructor(): this("","","",emptyList(),0.0,0,"Pending")
+    constructor(): this("","","","",emptyList(),0.0,0,"Pending")
 }

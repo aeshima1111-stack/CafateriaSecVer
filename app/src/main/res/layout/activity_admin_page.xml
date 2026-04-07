@@ -69,7 +69,7 @@
         android:id="@+id/cardview"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="20dp"
         app:cardBackgroundColor="@color/white"
         android:layout_marginTop="15dp"
         app:layout_constraintStart_toEndOf="@+id/cardadd"
@@ -151,7 +151,7 @@
         android:id="@+id/cardsale"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         app:cardBackgroundColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/cardhistory"
@@ -190,7 +190,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardinventory"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginRight="30dp"
@@ -203,13 +203,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/inventoryimg"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:scaleType="fitXY"
+                android:layout_gravity="center"
                 android:backgroundTint="@color/white"
                 android:src="@drawable/iconinventory"/>
 
@@ -217,8 +218,48 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Inventory"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:gravity="center"
+                android:paddingBottom="8dp"
+                />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/carduserdata"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="20dp"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/cardhistory"
+        app:layout_constraintTop_toBottomOf="@+id/cardsale"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/userdata"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/userdata"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="User Data"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:paddingBottom="8dp"
                 />
 
         </LinearLayout>

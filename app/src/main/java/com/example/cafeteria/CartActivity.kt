@@ -90,6 +90,7 @@ class CartActivity : AppCompatActivity(), PaymentResultListener {
 
     private fun saveOrderToFirebase(paymentId: String) {
         val currentUser = com.google.firebase.auth.FirebaseAuth.getInstance().currentUser
+        val userEmail = currentUser?.email ?: "Guest"
         val uId = currentUser?.uid ?: ""
         val orderId = database.push().key ?: UUID.randomUUID().toString()
         val currentstatus = if (paymentId== "CoC_Pending") "COC" else "Paid Online"
@@ -100,6 +101,7 @@ class CartActivity : AppCompatActivity(), PaymentResultListener {
             orderId = orderId,
             userId = uId,
             paymentId = paymentId,
+            userEmail = userEmail,
             items = cart.allItems.toList(), // Snapshot of current items
             totalAmount = cart.totalPrice,
             timestamp = System.currentTimeMillis(),
@@ -166,10 +168,11 @@ data class Order(
     val orderId: String = "",
     val paymentId: String = "",
     val userId: String = "",
+    val userEmail: String = "",
     val items: List<CartItem> = listOf(),
     val totalAmount: Double = 0.0,
     val timestamp: Long = System.currentTimeMillis(),
     val status: String = "Pending"
 ) {
-    constructor(): this("","","",emptyList(),0.0,0,"")
+    constructor(): this("","","","",emptyList(),0.0,0,"")
 }
